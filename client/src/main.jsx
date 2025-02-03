@@ -3,10 +3,10 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import App from './App.jsx';
 import Home from './pages/Home/Home.jsx';
-import Signup from './pages/Signup';
-import Login from './pages/Login';
-import Profile from './pages/Profile';
-import ErrorPage from './pages/ErrorPage';
+import Signup from './pages/Signup/Signup.jsx';
+import Login from './pages/Login/Login.jsx';
+import Profile from './pages/Profile/Profile.jsx';
+import ErrorPage from './pages/Error/Error.jsx';
 
 const router = createBrowserRouter([
   {
