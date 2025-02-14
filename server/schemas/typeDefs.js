@@ -3,7 +3,7 @@ const typeDefs = `
     _id: ID
     username: String
     email: String
-    password: String
+    isVerified: Boolean
   }
 
   type Auth {
@@ -18,7 +18,8 @@ const typeDefs = `
   }
 
   type Mutation {
-    addUser(username: String!, email: String!, password: String!): Auth
+    addUser(username: String!, email: String!, password: String!): String
+    verifyEmail(email: String!, verificationCode: String!): Auth
     login(email: String!, password: String!): Auth
   }
 `;
