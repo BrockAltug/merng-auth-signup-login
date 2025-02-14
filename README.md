@@ -3,15 +3,14 @@
 ## **Table of Contents**
 
 1. [Overview](#overview)
-2. [Demo](#demo)
-3. [Concepts Covered](#concepts-covered)
-4. [Learning Objectives](#learning-objectives)
-5. [Technologies Used](#technologies-used)
-6. [Features](#features)
-7. [Setup and Installation](#setup-and-installation)
+2. [Concepts Covered](#concepts-covered)
+3. [Learning Objectives](#learning-objectives)
+4. [Technologies Used](#technologies-used)
+5. [Features](#features)
+6. [Setup and Installation](#setup-and-installation)
    - [Prerequisites](#prerequisites)
    - [Steps to Run Locally](#steps-to-run-locally)
-8. [Summary](#summary)
+7. [Summary](#summary)
 
 ---
 
