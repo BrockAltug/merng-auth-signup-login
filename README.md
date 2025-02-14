@@ -24,15 +24,16 @@ This app follows **best authentication practices** to prevent fake email registr
 
 ---
 
-## **Demo**
-
-🚀 **Live Demo Coming Soon**
-
 📸 **Screenshots:**
 
-- Signup Page
-- Email Verification Modal
-- Login Page
+- **Signup Page**  
+  ![Signup Page](./public/assets/ss01.png)
+
+- **Email Verification Modal**  
+  ![Email Verification Modal](./public/assets/ss02.png)
+
+- **Login Page**  
+  ![Login Page](./public/assets/ss03.png)
 
 ---
 
