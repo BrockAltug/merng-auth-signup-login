@@ -19,6 +19,13 @@ const userSchema = new Schema({
     required: true,
     minlength: 5,
   },
+  verificationCode: {
+    type: String, // Stores the 6-digit verification code
+  },
+  isVerified: {
+    type: Boolean,
+    default: false, // Users are unverified by default
+  },
 });
 
 userSchema.pre('save', async function (next) {
@@ -26,7 +33,6 @@ userSchema.pre('save', async function (next) {
     const saltRounds = 10;
     this.password = await bcrypt.hash(this.password, saltRounds);
   }
-
   next();
 });
 
