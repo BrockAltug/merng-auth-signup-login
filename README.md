@@ -165,5 +165,3 @@ This **Auth Login/Signup with Email Verification** project **combines GraphQL au
 With a **MERN + GraphQL** architecture and **Apollo Client for state management**, the app **offers a seamless user experience**.
 
 🚀 **Now you're ready to build full-scale authentication systems with email verification!** 🎯
-
----
