@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { Navigate, useParams, Link } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 
@@ -7,6 +8,16 @@ import Auth from '../../utils/auth';
 const Profile = () => {
   const { username: userParam } = useParams();
 
+=======
+import { Navigate, useParams, Link } from "react-router-dom";
+import { useQuery } from "@apollo/client";
+import { QUERY_USER, QUERY_ME } from "../../utils/queries";
+import Auth from "../../utils/auth";
+import "./Profile.css"; // ✅ Import CSS
+
+const Profile = () => {
+  const { username: userParam } = useParams();
+>>>>>>> a4c02f8 (fix)
   const { loading, data } = useQuery(userParam ? QUERY_USER : QUERY_ME, {
     variables: { username: userParam },
   });
@@ -18,6 +29,7 @@ const Profile = () => {
   }
 
   if (loading) {
+<<<<<<< HEAD
     return (
       <div
         style={{
@@ -33,10 +45,14 @@ const Profile = () => {
         Loading...
       </div>
     );
+=======
+    return <div className="profile-loading">Loading...</div>;
+>>>>>>> a4c02f8 (fix)
   }
 
   if (!user?.username) {
     return (
+<<<<<<< HEAD
       <h4
         style={{
           textAlign: 'center',
@@ -68,12 +84,24 @@ const Profile = () => {
         >
           Sign up
         </Link>{' '}
+=======
+      <h4 className="profile-error">
+        You need to be logged in to see this.{" "}
+        <Link to="/login" className="profile-link">
+          Log in
+        </Link>{" "}
+        or{" "}
+        <Link to="/signup" className="profile-link">
+          Sign up
+        </Link>{" "}
+>>>>>>> a4c02f8 (fix)
         to access this page.
       </h4>
     );
   }
 
   return (
+<<<<<<< HEAD
     <main
       style={{
         padding: '2rem',
@@ -113,6 +141,15 @@ const Profile = () => {
           >
             {user.username}
           </h3>
+=======
+    <main className="profile-container">
+      <div className="profile-wrapper">
+        <h2 className="profile-header">
+          Viewing {userParam ? `${user.username}'s` : "your"} profile.
+        </h2>
+        <div className="profile-info">
+          <h3 className="profile-username">{user.username}</h3>
+>>>>>>> a4c02f8 (fix)
         </div>
       </div>
     </main>

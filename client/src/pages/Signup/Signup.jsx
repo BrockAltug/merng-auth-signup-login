@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <<<<<<< HEAD:client/src/pages/Signup/Signup.jsx
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
@@ -15,6 +16,17 @@ import Auth from "../utils/auth";
 const Signup = () => {
   const navigate = useNavigate();
 
+=======
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { useMutation } from "@apollo/client";
+import { ADD_USER, VERIFY_EMAIL } from "../../utils/mutations";
+import Auth from "../../utils/auth";
+import "./Signup.css"; // ✅ Import CSS
+
+const Signup = () => {
+  const navigate = useNavigate();
+>>>>>>> a4c02f8 (fix)
   const [formState, setFormState] = useState({
     username: "",
     email: "",
@@ -31,6 +43,7 @@ const Signup = () => {
 
   const handleChange = (event) => {
     const { name, value } = event.target;
+<<<<<<< HEAD
     setFormState({
       ...formState,
       [name]: value,
@@ -45,6 +58,15 @@ const Signup = () => {
   const handleFormSubmit = async (event) => {
     event.preventDefault();
 
+=======
+    setFormState({ ...formState, [name]: value });
+  };
+
+  const validateEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+
+  const handleFormSubmit = async (event) => {
+    event.preventDefault();
+>>>>>>> a4c02f8 (fix)
     if (!validateEmail(formState.email)) {
       setErrorMessage("Invalid email address.");
       return;
@@ -56,6 +78,7 @@ const Signup = () => {
     try {
       const { data } = await addUser({ variables: { ...formState } });
 
+<<<<<<< HEAD
       if (data && data.addUser) {
         const message = data.addUser; // Now `addUser` returns a string, not an object
         if (message.includes("User already exists but is unverified")) {
@@ -69,6 +92,16 @@ const Signup = () => {
             "A verification code has been sent to your email. Please check your inbox."
           );
         }
+=======
+      if (data?.addUser) {
+        const message = data.addUser;
+        if (message.includes("User already exists but is unverified")) {
+          setInfoMessage("Your account is not verified. A new verification code has been sent.");
+        } else {
+          setInfoMessage("A verification code has been sent to your email.");
+        }
+        setShowVerificationModal(true);
+>>>>>>> a4c02f8 (fix)
       } else {
         setErrorMessage("Unexpected error. Please try again.");
       }
@@ -83,10 +116,14 @@ const Signup = () => {
 
     try {
       const { data } = await verifyEmail({
+<<<<<<< HEAD
         variables: {
           email: formState.email,
           verificationCode: verificationCode,
         },
+=======
+        variables: { email: formState.email, verificationCode },
+>>>>>>> a4c02f8 (fix)
       });
 
       if (data.verifyEmail) {
@@ -99,6 +136,7 @@ const Signup = () => {
   };
 
   return (
+<<<<<<< HEAD
     <main
       style={{
         padding: "2rem",
@@ -292,6 +330,35 @@ const Signup = () => {
             >
               Log in
             </Link>
+=======
+    <main className="signup-container">
+      <div className="signup-card">
+        <h2 className="signup-title">Sign Up</h2>
+
+        {!showVerificationModal ? (
+          <form onSubmit={handleFormSubmit}>
+            <div className="signup-inputs">
+              <input className="signup-input" placeholder="Username" name="username" type="text" value={formState.username} onChange={handleChange} required />
+              <input className="signup-input" placeholder="Email" name="email" type="email" value={formState.email} onChange={handleChange} required />
+              <input className="signup-input" placeholder="Password" name="password" type="password" value={formState.password} onChange={handleChange} required />
+            </div>
+            <button type="submit" className="signup-button">Sign Up</button>
+          </form>
+        ) : (
+          <div className="verification-container">
+            <h3 className="verification-title">Enter Verification Code</h3>
+            <input className="verification-input" type="text" placeholder="Verification Code" value={verificationCode} onChange={(e) => setVerificationCode(e.target.value)} />
+            <button className="verification-button" onClick={handleVerificationSubmit}>Verify</button>
+          </div>
+        )}
+
+        {infoMessage && <div className="info-message">{infoMessage}</div>}
+        {errorMessage && <div className="error-message">{errorMessage}</div>}
+
+        {!showVerificationModal && (
+          <p className="signup-footer">
+            Already have an account? <Link to="/login" className="signup-link">Log in</Link>
+>>>>>>> a4c02f8 (fix)
           </p>
         )}
       </div>
